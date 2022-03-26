@@ -13,7 +13,7 @@ cd ..
 # check for updates on cms
 echo `date +"%Y-%m-%d-%T"` - Check for updates on content
 cd cms-public
-hostChanged=1;
+hostChanged=0;
 git remote update > /dev/null 2>&1
 git status -uno | grep -q 'Your branch is behind' && hostChanged=$((hostChanged+1))
 changed=$(($changed+$hostChanged))
@@ -35,7 +35,7 @@ cd ..
 # check for updates on host
 echo `date +"%Y-%m-%d-%T"` - Check for updates on host
 cd public
-hostChanged=1;
+hostChanged=0;
 git remote update > /dev/null 2>&1
 git status -uno | grep -q 'Your branch is behind' && hostChanged=$((hostChanged+1))
 changed=$(($changed+$hostChanged))
@@ -67,7 +67,7 @@ echo `date +"%Y-%m-%d-%T"` - Check for updates on scraper
 cd page-crawler
 
 
-hostChanged=1;
+hostChanged=0;
 git remote update > /dev/null 2>&1
 git status -uno | grep -q 'Your branch is behind' && hostChanged=$((hostChanged+1))
 changed=$(($changed+$hostChanged))
